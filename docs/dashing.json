@@ -1,0 +1,16 @@
+{
+    "name": "Verilog",
+    "package": "verilog",
+    "index": "index.html",
+    "selectors": {
+        "h2.function": "Function",
+        "h2.statement": "Statement",
+        "title": "Package"
+    },
+    "ignore": [
+        "ABOUT"
+    ],
+    "icon32x32": "",
+    "allowJS": false,
+    "ExternalURL": ""
+}

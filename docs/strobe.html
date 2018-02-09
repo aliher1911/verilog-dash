@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h2 class="function">$strobe</h2>
+    <br/>
+Print formatted string to stdout. Outputs data every time it is executed at the end of current simulation cycle.
+    <br/>
+    <table style="args,width:100%">
+      <tr>
+        <th>argument</th>
+        <th>decription</th>
+      </tr>
+      <tr>
+        <td>format string</td>
+        <td>Format string</td>
+      </tr>
+      <tr>
+        <td>a, b, ...</td>
+        <td>Values to expand according to parameter string</td>
+      </tr>
+    </table>
+    <br/>
+    Format string is identical to <a href="display.html">$display</a> function.
+    <br/>
+    <h3>Example:</h3>
+    <pre>
+initial begin
+    en <= 0;      
+    @(posedge clk);
+    $strobe("Signal %d", en); // will produce 'Signal 1'
+    en <= 1;
+    @(posedge clk);
+end
+    </pre>
+  </body>
+</html>

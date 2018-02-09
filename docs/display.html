@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h2 class="function">$display</h2>
+    <br/>
+Print formatted string to stdout. Outputs data every time it is executed.
+    <br/>
+    <table style="args,width:100%">
+      <tr>
+        <th>argument</th>
+        <th>decription</th>
+      </tr>
+      <tr>
+        <td>format string</td>
+        <td>Format string</td>
+      </tr>
+      <tr>
+        <td>a, b, ...</td>
+        <td>Values to expand according to parameter string</td>
+      </tr>
+    </table>
+    <br/>
+    Format string is interpolated to output string by replacing placeholders with remaining parameters. Each placeholder starts with % character which is followed by type.
+    <br/>
+    <table style="args,width:100%">
+      <tr>
+        <th>character</th>
+        <th>type</th>
+      </tr>
+      <tr>
+        <td>%d</td>
+        <td>decimal</td>
+      </tr>
+      <tr>
+        <td>%h</td>
+        <td>hexadecimal</td>
+      </tr>
+      <tr>
+        <td>%b</td>
+        <td>binary</td>
+      </tr>
+      <tr>
+        <td>%c</td>
+        <td>character</td>
+      </tr>
+      <tr>
+        <td>%s</td>
+        <td>string</td>
+      </tr>
+      <tr>
+        <td>%t</td>
+        <td>time</td>
+      </tr>
+    </table>
+    <br/>
+    <h3>Example:</h3>
+    <pre>
+initial begin
+    en <= 0;      
+    @(posedge clk);
+    $display("Signal %d", en); // will produce 'Signal 0'
+    en <= 1;
+    @(posedge clk);
+end
+    </pre>
+  </body>
+</html>
