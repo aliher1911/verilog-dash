@@ -3,25 +3,30 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h2 class="function">$</h2>
-    <table style="width:100%">
+    <h2 class="function">$deposit</h2>
+    <br />
+    Set net to a particular value immediately.
+    <br />
+    <table class="args" style="width:100%">
       <tr>
         <th>argument</th>
         <th>decription</th>
       </tr>
       <tr>
-        <td></td>
-        <td></td>
+        <td>net name</td>
+        <td>Name of the net to set value</td>
       </tr>
       <tr>
-        <td></td>
-        <td></td>
+        <td>value</td>
+        <td>New net value</td>
       </tr>
     </table>
-    <h3 class="return">Return value</h3>
-    Returns 
     <h3>Example:</h3>
     <pre>
+    reg en;
+    $display("En %d", en); // En z
+    $deposit(en, 1);
+    $display("En %d", en); // En 1
     </pre>
   </body>
 </html>

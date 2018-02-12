@@ -1,4 +1,6 @@
 *~
 .DS_Store
 *.docset
-.fst
+*.fst
+*.vcd
+*_tb
