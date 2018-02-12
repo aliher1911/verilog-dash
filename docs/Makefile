@@ -1,7 +1,9 @@
 all: verilog.docset/Contents/Info.plist
 
+GOPATH ?= ${HOME}/go/bin
+
 verilog.docset/Contents/Info.plist: dashing.json styles.css *.html
-	~/go/bin/dashing build
+	${GOPATH}/dashing build
 
 clean:
 	rm -fr verilog.docset
