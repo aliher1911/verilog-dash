@@ -24,10 +24,16 @@ Print formatted string to stdout. Outputs data every time it is executed.
     <br/>
     Format string is interpolated to output string by replacing placeholders with remaining parameters. Each placeholder starts with % character which is followed by type.
     <br/>
+    Placeholder consts of <b>%[width][.precision]format
+    <br/>
     <table class="args">
       <tr>
-        <th>character</th>
+        <th>format</th>
         <th>type</th>
+      </tr>
+      <tr>
+        <td>%b</td>
+        <td>binary</td>
       </tr>
       <tr>
         <td>%d</td>
@@ -38,8 +44,24 @@ Print formatted string to stdout. Outputs data every time it is executed.
         <td>hexadecimal</td>
       </tr>
       <tr>
-        <td>%b</td>
-        <td>binary</td>
+        <td>%o</td>
+        <td>octal</td>
+      </tr>
+      <tr>
+        <td>%e</td>
+        <td>real in the form of 3.1500e+00</td>
+      </tr>
+      <tr>
+        <td>%f</td>
+        <td>real in the form of 3.15</td>
+      </tr>
+      <tr>
+        <td>%g</td>
+        <td>real in f or e style depending on value and precision given</td>
+      </tr>
+      <tr>
+        <td>%v</td>
+        <td>Signal with strength: Su - supply, St - strong, Pu - Pull, La - Large, We - Weak, Me - Medium, Sm - Small, Hi - Highz</td>
       </tr>
       <tr>
         <td>%c</td>
@@ -53,7 +75,17 @@ Print formatted string to stdout. Outputs data every time it is executed.
         <td>%t</td>
         <td>time</td>
       </tr>
+      <tr>
+        <td>%m</td>
+        <td>hierarchical structure</td>
+      </tr>
     </table>
+    <br/>
+    Optional width defines minimum number of characters. Numbers are padded to the left with spaces or zeroes if width has a leading zero.
+    <br/>
+    Optional precision defines how many digits to specify after decimal point for real numbers.
+    <br/>
+    For more formatting details check c printf function (man 3 printf).
     <br/>
     <h3>Example:</h3>
     <pre>

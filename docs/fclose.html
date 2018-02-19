@@ -3,8 +3,9 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h2 class="function">$</h2>
+    <h2 class="function">$fclose</h2>
     <br/>
+    Close one or more files previously open by <a href="fopen.html">$fopen</a> task.
     <br/>
     <table class="args" style="width:100%">
       <tr>
@@ -12,18 +13,18 @@
         <th>decription</th>
       </tr>
       <tr>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
+        <td>mcd</td>
+        <td>Multichannel descriptor of file to close</td>
       </tr>
     </table>
     <br/>
-    <h3 class="return">Return value</h3>
-    Returns 
     <h3>Example:</h3>
+integer logFile;
+intial begin
+    logFile = $fopen("File1.log");
+    // ...
+    $fclose(logFile);
+end    
     <pre>
     </pre>
   </body>

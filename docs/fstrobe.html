@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h2 class="function">$fstrobe</h2>
+    <br/>
+Print formatted string to one or more files previously open with <a href="fopen.html">$fopen</a>. Outputs data every time it is executed at the end of current simulation cycle.
+    <br/>
+    <table class="args" style="width:100%">
+      <tr>
+        <th>argument</th>
+        <th>decription</th>
+      </tr>
+      <tr>
+        <td>mcd</td>
+        <td>Multichannel descriptor to write message to</td>
+      </tr>
+      <tr>
+        <td>format string</td>
+        <td>Format string</td>
+      </tr>
+      <tr>
+        <td>a, b, ...</td>
+        <td>Values to expand according to parameter string</td>
+      </tr>
+    </table>
+    <br/>
+    Format string is identical to <a href="display.html">$display</a> function.
+    <br/>
+    <h3>Example:</h3>
+    <pre>
+integer logfile;
+      
+initial begin
+    logfile = $fopen('simulaition.log');
+    en <= 0;      
+    @(posedge clk);
+    $fstrobe(logfile, "Signal %d", en); // will write 'Signal 1' to simulation.log
+    en <= 1;
+    @(posedge clk);
+    $fclose(logfile);      
+end
+    </pre>
+  </body>
+</html>

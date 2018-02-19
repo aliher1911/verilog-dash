@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h2 class="function">$fopen</h2>
+    <br/>
+Opens text file for writing. Up to 32 files could be open at the same time including standard output. Returned file handle has a single bit set corresponding to curreent file. Handles could be OR'ed together to make multifile handle and subsequentlyused to work with multiple files.
+    <br/>
+    <table class="args" style="width:100%">
+      <tr>
+        <th>argument</th>
+        <th>decription</th>
+      </tr>
+      <tr>
+        <td>filename</td>
+        <td>File name</td>
+      </tr>
+    </table>
+    <br/>
+    <h3 class="return">Return value</h3>
+    Returns integer multichannel descriptor for subsequent file operations or 0 if file can not be open.
+    <h3>Example:</h3>
+    <pre>
+integer logFile, logging;
+intial begin
+    logFile = $fopen("File1.log");
+    // We should log to console and a file log
+    logging = LogFile | 1;
+
+    $fdisplay(logging, "Simulation starts");
+    // ...
+    $fclose(logFile);
+end
+    </pre>
+  </body>
+</html>

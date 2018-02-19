@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h2 class="function">$dumplimit</h2>
+    <br/>
+    Set limit for dump file size. Once limit is reached, no more data would be appended to it.
+    <br/>
+    <table class="args" style="width:100%">
+      <tr>
+        <th>argument</th>
+        <th>decription</th>
+      </tr>
+      <tr>
+        <td>limit</td>
+        <td>Maximum file size in bytes. File size would approximately match the value.</td>
+      </tr>
+    </table>
+    <br/>
+    <h3>Example:</h3>
+    <pre>
+initial begin
+    $dumpfile("simulation.vcd");
+    $dumpvars(0, top_tb);
+    $dumplimit(1000);
+end    
+    </pre>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h2 class="function">$monitoroff</h2>
+    <br/>
+    Pause <a href="monitor.html">$monitor</a> output.
+    <br/>
+    <h3>Example:</h3>
+    <pre>
+initial begin
+    $monitor("Iteration %i at %t", i, $time);
+    $monitoroff;
+    // do some unimportant stuff
+    $monitoron;
+    // something interesting starts here
+end    
+    </pre>
+  </body>
+</html>

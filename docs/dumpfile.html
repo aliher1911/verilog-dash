@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h2 class="function">$dumpfile</h2>
+    <br/>
+Set file for writing simulation stimulus and results. Resulting file is a waveform dump in one of the formats supported by simulator. Results could be viewed in external viewer for example GTKWave.
+    <br/>
+    <table class="args" style="width:100%">
+      <tr>
+        <th>argument</th>
+        <th>decription</th>
+      </tr>
+      <tr>
+        <td>filename</td>
+        <td>File for writing simulation results</td>
+      </tr>
+    </table>
+    <br/>
+Filename could be stored in a register and specified in simulation params.
+    <br/>
+    <h3>Example:</h3>
+    <pre>
+initial begin
+    $dumpfile("simulation.vcd");
+    $dumpvars(0, top_tb);
+end
+    </pre>
+  </body>
+</html>
