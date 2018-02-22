@@ -1,0 +1,82 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h2 class="function">$value$plusargs</h2>
+    <br/>
+    Reads a plusarg value into variable. Plusargs are added as + prefixed arguments passed to simulator. Plusargs are usually defined as +argument=value but = is not mandatory and +argumentvalue could be matched as well.
+    <br/>
+    <table class="args" style="width:100%">
+      <tr>
+        <th>argument</th>
+        <th>decription</th>
+      </tr>
+      <tr>
+        <td>format</td>
+        <td>Format constiting of plusarg name followed by value format specifier. Name should contain = character if it is provided in plusarg.</td>
+      </tr>
+      <tr>
+        <td>variable</td>
+        <td>variable to read value into</td>
+      </tr>
+    </table>
+    <br/>
+    Task supports follwing format specifiers:
+    <table class="args">
+      <tr>
+        <th>format</th>
+        <th>type</th>
+      </tr>
+      <tr>
+        <td>%b</td>
+        <td>binary</td>
+      </tr>
+      <tr>
+        <td>%d</td>
+        <td>decimal</td>
+      </tr>
+      <tr>
+        <td>%h</td>
+        <td>hexadecimal</td>
+      </tr>
+      <tr>
+        <td>%o</td>
+        <td>octal</td>
+      </tr>
+      <tr>
+        <td>%e</td>
+        <td>real in the exponential form (e.g. 3.1500e+00)</td>
+      </tr>
+      <tr>
+        <td>%f</td>
+        <td>real in the decimal form (e.g. 3.15)</td>
+      </tr>
+      <tr>
+        <td>%g</td>
+        <td>real in f or e style</td>
+      </tr>
+      <tr>
+        <td>%s</td>
+        <td>string</td>
+      </tr>
+    </table>
+    <br/>
+    <h3 class="return">Return value</h3>
+    Returns 1'b0 if no matching plusarg was found, 1'b1 if plusarg was found. If format can't be matched with string, task still succeeds.
+    <h3>Example:</h3>
+    <pre>
+      // run simulation with +rate=3.14 to pass the rate
+      // or run without rate to use default value
+real rate;
+initial begin
+      if ($value$plusargs("rate=%f", rate)) begin
+         $display("Got rate %f", rate);
+      end else begin
+         $display("Can't find rate arg");
+         rate = 1;
+      end
+end
+    </pre>
+  </body>
+</html>

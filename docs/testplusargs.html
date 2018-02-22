@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h2 class="function">$test$plusargs</h2>
+    <br/>
+    Tests if plusarg is present. Plusargs are added as + prefixed arguments passed to simulator. Plusargs are usually defined as +argument=value but = is not mandatory.
+    <br/>
+    <table class="args" style="width:100%">
+      <tr>
+        <th>argument</th>
+        <th>decription</th>
+      </tr>
+      <tr>
+        <td>prefix</td>
+        <td>Plusarg name prefix. Any arg starting from prefix string will match, so to avoid longer names matching = sign could be included in the prefix to match.</td>
+      </tr>
+    </table>
+    <br/>
+    <h3 class="return">Return value</h3>
+    Returns 1'b0 if no matching plusarg was found, 1'b1 if plusarg was found.
+    <h3>Example:</h3>
+    <pre>
+      // run simulation with +rate=3.14
+initial begin
+      if ($test$plusargs("rate")) begin
+          $display("Found rate"); // will print Found rate
+      end
+      if ($test$plusargs("ra")) begin
+          $display("Found rate"); // will print Found rate
+      end
+      if ($test$plusargs("rate=")) begin
+          $display("Found rate"); // will print Found rate
+      end
+      if ($test$plusargs("rate=4")) begin
+          $display("Found rate"); // will not be executed
+      end
+end
+    </pre>
+  </body>
+</html>
