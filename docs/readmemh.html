@@ -1,0 +1,65 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h2 class="function">$readmemh</h2>
+    <br/>
+    Read contents of a file with hexadecimal data representation into memory array. Data could contain whitespaces, verilog comments, addresses and hexadecimal data.
+    <br/><br/>
+    Data words should match memory words in width.
+    <br/><br/>
+    Address is always in hexadecimal form and prefixed with @ symbol.
+    <br/><br/>
+    Reading will begin at 0 or startAddr if provided. If address of next word to write falls out of range, reading stops. If address is found in file, it will change address where next word would be read. If this address is out of range, reading stops as well, ignoring remainder of the file. If address ranges overlap, later values will overwrite earlier ones.
+    <br/>
+    <table class="args" style="width:100%">
+      <tr>
+        <th>argument</th>
+        <th>decription</th>
+      </tr>
+      <tr>
+        <td>filename</td>
+        <td>Filename of an ascii file containing data.</td>
+      </tr>
+      <tr>
+        <td>memory</td>
+        <td>Name of the memory array</td>
+      </tr>
+      <tr>
+        <td>startAddr</td>
+        <td>Optional first address to load data</td>
+      </tr>
+      <tr>
+        <td>finishAddr</td>
+        <td>Optional last address to load data inclusive</td>
+      </tr>
+    </table>
+    <br/>
+    <h3>Example:</h3>
+    <pre>
+reg [7:0]    data[0:15];
+integer      i;
+reg [7:0]    row;
+    
+initial begin
+    $readmemh("stimulus.txt", data, 2, 13);
+    for(i = 0; i < 16; i = i + 1) begin
+        row = data[i];
+        $display("%02d: %b", i, row);
+    end
+end
+
+// data file will initialize 3 words starting from addr 3
+// ramaining words would fall outside of allowed range and be
+// ignored
+@3
+01
+02
+03
+@f
+a1
+a2
+    </pre>
+  </body>
+</html>
